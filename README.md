@@ -1,2 +1,2 @@
 ﻿# powerFuelApp
-#~~~~ Online fuel requesting and que management ~~~~~
+~~~~ Online fuel requesting and que management ~~~~~
