@@ -11,7 +11,11 @@ public class FuelRequestDetails {
     int requestDetail_id;
     int request_id;
     int batch_num;
+
+    @Column(columnDefinition = "integer default 0")
     int requested_quantity;
+
+    @Column(columnDefinition = "integer default 0")
     int received_quantity;
     double unit_price;
     String fuel_type;
