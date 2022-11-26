@@ -1,4 +1,4 @@
 package com.powerfuel.powerFuelApp.service;
 
-public class FuelStationImpl {
+public class FuelStationImpl implements FuelStationService {
 }

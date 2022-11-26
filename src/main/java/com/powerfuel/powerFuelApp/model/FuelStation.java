@@ -13,6 +13,8 @@ public class FuelStation {
     private String address;
     private String mobile;
     private String email;
+
+    @Column(columnDefinition = "varchar(50) default 'open'")
     private String status;
     private double petrolCapacity;
     private double dieselCapacity;
