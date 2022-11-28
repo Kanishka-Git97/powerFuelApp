@@ -3,21 +3,20 @@ package com.powerfuel.powerFuelApp.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "fuel_station")
-public class FuelStation {
+@Table(name = "customer")
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int id;
     private String name;
     private String address;
+    private String nic;
     private String mobile;
     private String email;
+    private String password;
     private int district;
-    @Column(columnDefinition = "varchar(50) default 'open'")
-    private String status;
-    private double petrol_capacity;
-    private double diesel_capacity;
+    private int station;
 
     //Getters
     public int getId() {
@@ -29,24 +28,23 @@ public class FuelStation {
     public String getAddress() {
         return address;
     }
+    public String getNic() {
+        return nic;
+    }
     public String getMobile() {
         return mobile;
     }
     public String getEmail() {
         return email;
     }
-    public String getStatus() {
-        return status;
+    public String getPassword() {
+        return password;
     }
-    public double getPetrolCapacity() {
-        return petrol_capacity;
-    }
-    public double getDieselCapacity() {
-        return diesel_capacity;
-    }
-
     public int getDistrict() {
         return district;
+    }
+    public int getStation() {
+        return station;
     }
 
     //Setters
@@ -59,22 +57,22 @@ public class FuelStation {
     public void setAddress(String address) {
         this.address = address;
     }
+    public void setNic(String nic) {
+        this.nic = nic;
+    }
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
     public void setEmail(String email) {
         this.email = email;
     }
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    public void setPetrolCapacity(double petrolCapacity) {
-        this.petrol_capacity = petrolCapacity;
-    }
-    public void setDieselCapacity(double dieselCapacity) {
-        this.diesel_capacity = dieselCapacity;
+    public void setPassword(String password) {
+        this.password = password;
     }
     public void setDistrict(int district) {
         this.district = district;
+    }
+    public void setStation(int station) {
+        this.station = station;
     }
 }
