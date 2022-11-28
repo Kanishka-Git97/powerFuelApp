@@ -6,6 +6,9 @@ import com.powerfuel.powerFuelApp.service.FuelStationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Objects;
+
 @RestController
 @RequestMapping("/fuelstation")
 @CrossOrigin
@@ -27,6 +30,7 @@ public class FuelStationController {
             newStation.setDieselCapacity(data.get("diesel_capacity").asDouble());
             newStation.setPetrolCapacity(data.get("petrol_capacity").asDouble());
             newStation.setStatus(data.get("status").asText());
+            newStation.setDistrict(data.get("district").asInt());
             fuelstationservice.registerFuelStation(newStation);
 
         }else{
@@ -51,7 +55,11 @@ public class FuelStationController {
         return "updated";
     }
 
+    /*----Nearest Station details-----------*/
+    @PostMapping("/nearest")
+    public List<FuelStation> nearest(@RequestBody ObjectNode data){
+        return fuelstationservice.getNearestStations(data.get("district").asInt());
 
-
+    }
 
 }

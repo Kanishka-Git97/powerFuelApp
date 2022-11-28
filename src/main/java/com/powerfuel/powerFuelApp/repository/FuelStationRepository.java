@@ -36,6 +36,7 @@ public interface FuelStationRepository extends JpaRepository<FuelStation,Integer
     @Query(value ="SELECT petrol_capacity,diesel_capacity FROM fuel_station WHERE id=?1",nativeQuery = true)
     List<Objects> getCurrentCapacity(int id);
 
-
+    @Query(value = "SELECT * FROM fuel_station WHERE district=? AND status='Open'", nativeQuery = true)
+    List<FuelStation> getNearestStations(int district);
 
 }

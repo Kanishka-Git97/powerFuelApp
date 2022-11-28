@@ -37,6 +37,6 @@ public class FuelStationImpl implements FuelStationService {
         return repository.validateStation(email);
     }
 
-
+    public List<FuelStation> getNearestStations(int district){return repository.getNearestStations(district);}
 
 }

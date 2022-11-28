@@ -18,4 +18,5 @@ public interface FuelStationService {
     public List<Objects> getCurrentCapacity(int id);
 
     public int validateStation(String email);
+    public List<FuelStation> getNearestStations(int district);
 }
