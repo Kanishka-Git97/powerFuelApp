@@ -13,9 +13,11 @@ public class FuelStation {
     private String address;
     private String mobile;
     private String email;
+
+    @Column(columnDefinition = "varchar(50) default 'open'")
     private String status;
-    private double petrolCapacity;
-    private double dieselCapacity;
+    private double petrol_capacity;
+    private double diesel_capacity;
 
     //Getters
     public int getId() {
@@ -37,10 +39,10 @@ public class FuelStation {
         return status;
     }
     public double getPetrolCapacity() {
-        return petrolCapacity;
+        return petrol_capacity;
     }
     public double getDieselCapacity() {
-        return dieselCapacity;
+        return diesel_capacity;
     }
 
     //Setters
@@ -63,9 +65,9 @@ public class FuelStation {
         this.status = status;
     }
     public void setPetrolCapacity(double petrolCapacity) {
-        this.petrolCapacity = petrolCapacity;
+        this.petrol_capacity = petrolCapacity;
     }
     public void setDieselCapacity(double dieselCapacity) {
-        this.dieselCapacity = dieselCapacity;
+        this.diesel_capacity = dieselCapacity;
     }
 }
