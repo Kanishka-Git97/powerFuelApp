@@ -13,7 +13,7 @@ public class FuelStation {
     private String address;
     private String mobile;
     private String email;
-
+    private int district;
     @Column(columnDefinition = "varchar(50) default 'open'")
     private String status;
     private double petrol_capacity;
@@ -45,6 +45,10 @@ public class FuelStation {
         return diesel_capacity;
     }
 
+    public int getDistrict() {
+        return district;
+    }
+
     //Setters
     public void setId(int id) {
         this.id = id;
@@ -69,5 +73,8 @@ public class FuelStation {
     }
     public void setDieselCapacity(double dieselCapacity) {
         this.diesel_capacity = dieselCapacity;
+    }
+    public void setDistrict(int district) {
+        this.district = district;
     }
 }
