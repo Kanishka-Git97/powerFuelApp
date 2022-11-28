@@ -1,6 +1,7 @@
 package com.powerfuel.powerFuelApp.controller;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.powerfuel.powerFuelApp.model.DataTraveler;
 import com.powerfuel.powerFuelApp.model.FuelStation;
 import com.powerfuel.powerFuelApp.service.FuelStationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,9 +57,10 @@ public class FuelStationController {
     }
 
     /*----Nearest Station details-----------*/
-    @PostMapping("/nearest")
-    public List<FuelStation> nearest(@RequestBody ObjectNode data){
-        return fuelstationservice.getNearestStations(data.get("district").asInt());
+    @PostMapping(path = "/nearest", consumes = "application/x-www-form-urlencoded")
+    public List<FuelStation> nearest(DataTraveler data){
+        int id = Integer.parseInt(data.getId());
+        return fuelstationservice.getNearestStations(id);
 
     }
 
