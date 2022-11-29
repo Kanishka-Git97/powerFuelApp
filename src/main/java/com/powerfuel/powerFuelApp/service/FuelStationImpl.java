@@ -38,5 +38,6 @@ public class FuelStationImpl implements FuelStationService {
     }
 
     public List<FuelStation> getNearestStations(int district){return repository.getNearestStations(district);}
+    public FuelStation getStation(int id){return repository.findById(id).orElse(null);}
 
 }

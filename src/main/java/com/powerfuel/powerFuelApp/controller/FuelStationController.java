@@ -61,7 +61,11 @@ public class FuelStationController {
     public List<FuelStation> nearest(DataTraveler data){
         int id = Integer.parseInt(data.getId());
         return fuelstationservice.getNearestStations(id);
+    }
 
+    @PostMapping("/get")
+    public FuelStation get(@RequestBody ObjectNode data){
+        return fuelstationservice.getStation(data.get("id").asInt());
     }
 
 }
