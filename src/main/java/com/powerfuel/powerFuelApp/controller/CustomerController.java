@@ -2,6 +2,7 @@ package com.powerfuel.powerFuelApp.controller;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.powerfuel.powerFuelApp.model.Customer;
+import com.powerfuel.powerFuelApp.model.DataTraveler;
 import com.powerfuel.powerFuelApp.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,11 @@ public class CustomerController {
     @PostMapping(path = "/validate", consumes = "application/x-www-form-urlencoded")
     public Integer validate(Customer customer){
         return service.validate(customer.getEmail(), customer.getNic());
+    }
+
+    @PostMapping(path = "/login", consumes = "application/x-www-form-urlencoded")
+    public Customer login(DataTraveler traveler){
+        return service.login(traveler.getEmail(), traveler.getPassword());
     }
 
     @GetMapping("/all")

@@ -20,4 +20,5 @@ public class CustomerImpl implements CustomerService{
     public Integer validate(String email, String nic){
         return repository.validatate(email, nic);
     }
+    public Customer login(String email, String password) {return  repository.login(email, password);}
 }
