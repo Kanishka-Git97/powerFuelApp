@@ -17,12 +17,12 @@ public class FuelStationImpl implements FuelStationService {
         return repository.save(fuelstation);
     }
 
-    public List<FuelStation> getStationDetails(int station_id){
-        return repository.getStationDetails(station_id);
+    public List<FuelStation> getAllStationDetails(){
+        return repository.getAllStationDetails();
     }
 
-    public void updateStationData(String name,String mobile,double diesel,double petrol,String status,String email){
-        repository.updateStationData(name, mobile, diesel, petrol,status,email);
+    public void updateStationData(String address,double diesel,int district,String email,String mobile,String name,double petrol,String status,int id){
+        repository.updateStationData(address, diesel, district, email, mobile, name, petrol, status, id);
     }
 
     public void closeStation(String status,int id){
@@ -38,5 +38,9 @@ public class FuelStationImpl implements FuelStationService {
     }
 
     public List<FuelStation> getNearestStations(int district){return repository.getNearestStations(district);}
+
+    public List<FuelStation> getSingleStationDetails(int id){
+        return repository.getSingleStationDetails(id);
+    }
 
 }

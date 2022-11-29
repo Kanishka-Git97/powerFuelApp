@@ -15,12 +15,12 @@ import java.util.Objects;
 public class FuelStationController {
     @Autowired
     private FuelStationService fuelstationservice;
-    FuelStation newStation=new FuelStation();
+
     @PostMapping("/register")
 
     public String registerNewStation(@RequestBody ObjectNode data){
 
-
+        FuelStation newStation=new FuelStation();
         int validateAccountStatus=fuelstationservice.validateStation(data.get("email").asText());
         if(validateAccountStatus==0){
             newStation.setName(data.get("name").asText());
@@ -45,13 +45,17 @@ public class FuelStationController {
 
     @PostMapping("/update")
     public String updateStation(@RequestBody ObjectNode data){
+        int id=data.get("id").asInt();
         String name=data.get("name").asText();
-        String mobile=data.get("mobile").asText();
-        double diesel_capacity=data.get("diesel_capacity").asDouble();
-        double petrol_capacity=data.get("petrol_capacity").asDouble();
-        String status=data.get("status").asText();
+        String address=data.get("address").asText();
+        String number=data.get("mobile").asText();
         String email=data.get("email").asText();
-        fuelstationservice.updateStationData(name,mobile,diesel_capacity,petrol_capacity,status,email);
+        double dieselCap=data.get("diesel_capacity").asDouble();
+        double petrolCap=data.get("petrol_capacity").asDouble();
+        String status=data.get("status").asText();
+        int district=data.get("district").asInt();
+        // public void updateStationData(String address,double diesel,int district,String email,String mobile,String name,double petrol,String status,int id);
+        fuelstationservice.updateStationData(address,dieselCap,district,email,number,name,petrolCap,status,id);
         return "updated";
     }
 
@@ -61,5 +65,19 @@ public class FuelStationController {
         return fuelstationservice.getNearestStations(data.get("district").asInt());
 
     }
+
+    /*---------View All Station Details-------*/
+    @PostMapping("/viewAll")
+    public List<FuelStation>viewAllStations(){
+        return fuelstationservice.getAllStationDetails();
+    }
+
+    /*-------------get single station by id------*/
+    @PostMapping("/getSingleItem")
+    public List<FuelStation> getSingleItemDetails(@RequestBody ObjectNode data){
+        int station_id=data.get("id").asInt();
+        return fuelstationservice.getSingleStationDetails(station_id);
+    }
+
 
 }

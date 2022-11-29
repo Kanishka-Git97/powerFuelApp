@@ -16,14 +16,14 @@ public interface FuelStationRepository extends JpaRepository<FuelStation,Integer
 
 
     /*---View Station Details-----*/
-    @Query(value="SELECT * FROM fuel_station WHERE id=?1",nativeQuery = true)
-    List<FuelStation> getStationDetails(int station_id);
+    @Query(value="SELECT * FROM fuel_station",nativeQuery = true)
+    List<FuelStation> getAllStationDetails();
 
     /*------Update Fuel Station table------*/
     @Transactional
     @Modifying
-    @Query(value="UPDATE fuel_station SET name=?1,mobile=?2,diesel_capacity=?3,petrol_capacity=?4,status=?5 WHERE email like ?6",nativeQuery = true)
-    void updateStationData(String name,String mobile,double diesel,double petrol,String status,String email);
+    @Query(value="UPDATE fuel_station SET address=?1,diesel_capacity=?2,district=?3,email=?4,mobile=?5,name=?6,petrol_capacity=?7,status=?8 WHERE id like ?8",nativeQuery = true)
+    void updateStationData(String address,double diesel,int district,String email,String mobile,String name,double petrol,String status,int id);
 
     /*---------Close Station-----*/
     @Transactional
@@ -38,5 +38,12 @@ public interface FuelStationRepository extends JpaRepository<FuelStation,Integer
 
     @Query(value = "SELECT * FROM fuel_station WHERE district=? AND status='Open'", nativeQuery = true)
     List<FuelStation> getNearestStations(int district);
+
+    /*---------Select one station by its id------------------*/
+    @Query(value="SELECT * FROM fuel_station WHERE id=?1",nativeQuery = true)
+    List<FuelStation> getSingleStationDetails(int id);
+
+
+
 
 }
