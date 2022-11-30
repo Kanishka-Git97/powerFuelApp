@@ -22,7 +22,7 @@ public interface FuelStationRepository extends JpaRepository<FuelStation,Integer
     /*------Update Fuel Station table------*/
     @Transactional
     @Modifying
-    @Query(value="UPDATE fuel_station SET address=?1,diesel_capacity=?2,district=?3,email=?4,mobile=?5,name=?6,petrol_capacity=?7,status=?8 WHERE id like ?8",nativeQuery = true)
+    @Query(value="UPDATE fuel_station SET address=?1,diesel_capacity=?2,district=?3,email=?4,mobile=?5,name=?6,petrol_capacity=?7,status=?8 WHERE id like ?9",nativeQuery = true)
     void updateStationData(String address,double diesel,int district,String email,String mobile,String name,double petrol,String status,int id);
 
     /*---------Close Station-----*/
