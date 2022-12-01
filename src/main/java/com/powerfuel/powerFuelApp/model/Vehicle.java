@@ -18,6 +18,9 @@ public class Vehicle {
     @Column(name = "fuel_type")
     private int fuelType;
 
+    @Column(name = "customer_id")
+    private int customer;
+
 
     public Integer getId() {
         return id;
@@ -43,6 +46,10 @@ public class Vehicle {
         return vehicleType;
     }
 
+    public int getCustomer() {
+        return customer;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -65,5 +72,9 @@ public class Vehicle {
 
     public void setFuelType(int fuelType) {
         this.fuelType = fuelType;
+    }
+
+    public void setCustomer(int customer) {
+        this.customer = customer;
     }
 }

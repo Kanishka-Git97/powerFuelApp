@@ -5,6 +5,8 @@ import com.powerfuel.powerFuelApp.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VehicleImpl implements VehicleService{
     @Autowired
@@ -17,6 +19,10 @@ public class VehicleImpl implements VehicleService{
         if(repository.validate(vehicle.getRegistration(), vehicle.getChassis()) > 0) return "Duplicate";
         repository.save(vehicle);
         return "Vehicle Registered";
+    }
+
+    public List<Vehicle> getVehiclesByOwner(int customer){
+       return repository.getVehiclesByOwner(customer);
     }
 
 }
