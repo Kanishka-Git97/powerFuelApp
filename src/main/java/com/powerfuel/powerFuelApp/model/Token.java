@@ -9,11 +9,11 @@ public class Token {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private Integer id;
-    private Integer user;
+    private int id;
+    private Integer vehicle;
     private double qty;
     @Column(name="requested_at")
-    private Date requestedAt;
+    private String requestedAt;
     private String status;
     @Column(name="update_at", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date updateAt;
@@ -30,11 +30,11 @@ public class Token {
         return status;
     }
 
-    public Integer getUser() {
-        return user;
+    public Integer getVehicle() {
+        return vehicle;
     }
 
-    public Date getRequestedAt() {
+    public String getRequestedAt() {
         return requestedAt;
     }
 
@@ -54,11 +54,11 @@ public class Token {
         this.status = status;
     }
 
-    public void setUser(Integer user) {
-        this.user = user;
+    public void setVehicle(Integer vehicle) {
+        this.vehicle = vehicle;
     }
 
-    public void setRequestedAt(Date requestedAt) {
+    public void setRequestedAt(String requestedAt) {
         this.requestedAt = requestedAt;
     }
 
