@@ -15,11 +15,24 @@ public class FuelRequestDetails {
     @Column(columnDefinition = "integer default 0")
     int requested_quantity;
 
+
+
     @Column(columnDefinition = "integer default 0")
     int received_quantity;
+
+    @Column(columnDefinition = "integer default 0")
+    int dispatched_quantity;
     double unit_price;
     String fuel_type;
     String status;
+
+    public void setDispatched_quantity(int dispatched_quantity) {
+        this.dispatched_quantity = dispatched_quantity;
+    }
+
+    public int getDispatched_quantity() {
+        return dispatched_quantity;
+    }
 
     public int getRequestDetail_id() {
         return requestDetail_id;
