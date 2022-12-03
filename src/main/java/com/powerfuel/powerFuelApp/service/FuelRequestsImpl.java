@@ -17,4 +17,12 @@ public class FuelRequestsImpl implements FuelRequestService {
 
     }
 
+    public int getRequestId(int station_id){
+        return repository.getRequestId(station_id);
+    }
+
+    public int validateStationRequest(int station_id){
+        return repository.validateStationRequest(station_id);
+    }
+
 }
