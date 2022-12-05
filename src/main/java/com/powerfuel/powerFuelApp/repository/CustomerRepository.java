@@ -9,6 +9,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     @Query(value = "SELECT COUNT(*) FROM customer WHERE email=?1 OR nic=?2", nativeQuery = true)
     Integer validatate(String email, String nic);
 
-    @Query(value = "SELECT * FROM customer WHERE email=?1 AND password=?2", nativeQuery = true)
+    @Query(value = "SELECT * FROM customer WHERE email=?1 AND password=?2 AND status='Active'", nativeQuery = true)
     Customer login(String email, String password);
 }

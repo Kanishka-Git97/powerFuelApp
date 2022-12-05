@@ -17,6 +17,7 @@ public class Customer {
     private String password;
     private int district;
     private int station;
+    private String status;
 
     //Getters
     public int getId() {
@@ -47,6 +48,10 @@ public class Customer {
         return station;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
     //Setters
     public void setId(int id) {
         this.id = id;
@@ -74,5 +79,9 @@ public class Customer {
     }
     public void setStation(int station) {
         this.station = station;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
