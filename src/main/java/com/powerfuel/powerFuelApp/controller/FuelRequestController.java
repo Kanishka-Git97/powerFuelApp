@@ -94,5 +94,13 @@ public class FuelRequestController {
     }
 
 
+    /*-----get all Data by Id----*/
+    @PostMapping("/fetch")
+    List<Object> viewAllItemsById(@RequestBody ObjectNode data){
+        int station_id=data.get("station_id").asInt();
+        return fuelrequestservice.viewAllRequestsByStationId(station_id);
+    }
+
+
 
 }

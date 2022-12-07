@@ -26,6 +26,18 @@ public class FuelRequestDetails {
     String fuel_type;
     String status;
 
+    @ManyToOne
+    @JoinColumn(name="fuelRequests_tb")
+    private FuelRequests fuelRequests;
+
+    public FuelRequests getFuelRequests() {
+        return fuelRequests;
+    }
+
+    public void setFuelRequests(FuelRequests fuelRequests) {
+        this.fuelRequests = fuelRequests;
+    }
+
     public void setDispatched_quantity(int dispatched_quantity) {
         this.dispatched_quantity = dispatched_quantity;
     }

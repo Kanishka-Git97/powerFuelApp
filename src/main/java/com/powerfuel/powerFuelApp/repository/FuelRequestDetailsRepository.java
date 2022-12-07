@@ -24,4 +24,6 @@ public interface FuelRequestDetailsRepository extends JpaRepository<FuelRequestD
     /*-----------get already requested fuel type--------*/
     @Query(value="SELECT fuel_type FROM fuel_request_details_tb WHERE request_id=?1 AND status='pending'",nativeQuery = true)
     String getRequestedFuelType(int request_id);
+
+
 }

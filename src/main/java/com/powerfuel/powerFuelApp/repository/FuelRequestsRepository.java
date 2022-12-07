@@ -27,13 +27,10 @@ public interface FuelRequestsRepository extends JpaRepository<FuelRequests,Integ
     int validateStationRequest(int station_id);
 
 
+    /*----View all Requests by id----*/
 
-
-
-
-
-
-
+    @Query(value="SELECT * FROM fuel_requests_tb WHERE station_id=?1",nativeQuery = true)
+    List<Object> viewAllRequestsByStationId(int station_id);
 
 
 

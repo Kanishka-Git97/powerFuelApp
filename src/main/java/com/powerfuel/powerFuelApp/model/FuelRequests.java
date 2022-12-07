@@ -14,6 +14,9 @@ public class FuelRequests {
     String request_date;
     String request_status;
 
+    @OneToMany(mappedBy = "fuelRequests_tb",cascade = CascadeType.ALL,orphanRemoval = true)
+
+
     public int getRequest_id() {
         return request_id;
     }

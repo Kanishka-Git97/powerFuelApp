@@ -19,6 +19,10 @@ public class FuelStation {
     private double petrol_capacity;
     private double diesel_capacity;
 
+    private int business_reg_no;
+
+
+
     //Getters
     public int getId() {
         return id;
@@ -44,6 +48,10 @@ public class FuelStation {
     public double getDieselCapacity() {
         return diesel_capacity;
     }
+    public int getBusiness_reg_no() {
+        return business_reg_no;
+    }
+
 
     public int getDistrict() {
         return district;
@@ -76,5 +84,8 @@ public class FuelStation {
     }
     public void setDistrict(int district) {
         this.district = district;
+    }
+    public void setBusiness_reg_no(int business_reg_no) {
+        this.business_reg_no = business_reg_no;
     }
 }
