@@ -1,6 +1,7 @@
 package com.powerfuel.powerFuelApp.service;
 
 import com.powerfuel.powerFuelApp.model.FuelRequestDetails;
+import com.powerfuel.powerFuelApp.model.FuelRequests;
 import com.powerfuel.powerFuelApp.repository.FuelRequestDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +23,9 @@ public class FuelRequestDetailsImpl implements FuelRequestDetailsService {
 
     public String getRequestedFuelType(int request_id){
         return repository.getRequestedFuelType(request_id);
+    }
+
+    public List<FuelRequestDetails> viewAllRequestsByStationId(int station_id){
+        return repository.viewAllRequestsByStationId(station_id);
     }
 }

@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.Column;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/fuelRequest")
@@ -26,6 +28,7 @@ public class FuelRequestController {
     public String createRequest(@RequestBody ObjectNode data){
         FuelRequests newRequest=new FuelRequests();
         FuelRequestDetails newDetails=new FuelRequestDetails();
+        List<FuelRequests> data1;
 
         int station_id=data.get("station_id").asInt();
         String request_date=data.get("request_date").asText();
@@ -40,6 +43,7 @@ public class FuelRequestController {
 
         /*------Check Open Requests for current station id---*/
         int validateAvailability=fuelrequestservice.validateStationRequest(station_id);
+        System.out.print(validateAvailability);
         if(validateAvailability==0){
             /*---insert into fuel requests table-----*/
             newRequest.setStation_id(station_id);
@@ -58,6 +62,7 @@ public class FuelRequestController {
             newDetails.setUnit_price(unit_price);
             newDetails.setFuel_type(fuel_type);
             newDetails.setStatus(status);
+            newDetails.setFuelRequests(newRequest);
 
             fuelrequestdetailservice.insertRequestDetails(newDetails);
 
@@ -65,9 +70,17 @@ public class FuelRequestController {
             return "success";
 
         }else{
+            /*-------get request id for the second time data insert------*/
             int request_id= fuelrequestservice.getRequestId(station_id);
             List<Object> pendingTypes=fuelrequestdetailservice.getPendingList(request_id);
-            System.out.println(pendingTypes.size());
+            /*--------Get Pending Details From Fuel Requests------*/
+            List<FuelRequests> currentRequestDetails=fuelrequestservice.getPendingDetails(station_id);
+            FuelRequests examplData=currentRequestDetails.get(0);
+//            int fetched_station_id=examplData.getStation_id();
+//            int fetched_request_id=examplData.getStation_id();
+//            String fetched_request_date=examplData.getRequest_date();
+//            String fetched_request_status=examplData.getRequest_status();
+
             if(pendingTypes.size()==1){
                 newDetails.setRequest_id(request_id);
                 newDetails.setBatch_num(batch_num);
@@ -78,8 +91,13 @@ public class FuelRequestController {
                 newDetails.setFuel_type(fuel_type);
                 newDetails.setStatus(status);
 
+                /*-----Initialize fetched Requests Data to requests details table----*/
+
+                newDetails.setFuelRequests(examplData);
+
+
                 fuelrequestdetailservice.insertRequestDetails(newDetails);
-                return "success second";
+                return "second success";
 
 
             }
@@ -90,15 +108,15 @@ public class FuelRequestController {
         }
 
 
-        return "abort";
+       return "abort";
     }
 
 
     /*-----get all Data by Id----*/
     @PostMapping("/fetch")
-    List<Object> viewAllItemsById(@RequestBody ObjectNode data){
+    List<FuelRequestDetails> viewAllItemsById(@RequestBody ObjectNode data){
         int station_id=data.get("station_id").asInt();
-        return fuelrequestservice.viewAllRequestsByStationId(station_id);
+        return fuelrequestdetailservice.viewAllRequestsByStationId(station_id);
     }
 
 

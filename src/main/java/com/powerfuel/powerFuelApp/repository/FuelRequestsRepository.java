@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface FuelRequestsRepository extends JpaRepository<FuelRequests,Integer> {
@@ -26,11 +27,11 @@ public interface FuelRequestsRepository extends JpaRepository<FuelRequests,Integ
     @Query(value="SELECT COUNT(*) FROM fuel_requests_tb WHERE station_id=?1 AND request_status='pending'",nativeQuery = true)
     int validateStationRequest(int station_id);
 
+    /*------get all the pending detils------*/
+    @Query(value="SELECT * FROM fuel_requests_tb WHERE station_id=?1 AND request_status='pending'",nativeQuery = true)
+    List<FuelRequests> getPendingDetails(int station_id);
 
-    /*----View all Requests by id----*/
 
-    @Query(value="SELECT * FROM fuel_requests_tb WHERE station_id=?1",nativeQuery = true)
-    List<Object> viewAllRequestsByStationId(int station_id);
 
 
 

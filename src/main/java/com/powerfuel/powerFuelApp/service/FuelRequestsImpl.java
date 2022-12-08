@@ -7,6 +7,7 @@ import com.powerfuel.powerFuelApp.repository.FuelStationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -27,8 +28,11 @@ public class FuelRequestsImpl implements FuelRequestService {
         return repository.validateStationRequest(station_id);
     }
 
-    public List<Object> viewAllRequestsByStationId(int station_id){
-        return repository.viewAllRequestsByStationId(station_id);
+    public List<FuelRequests> getPendingDetails(int station_id){
+        return repository.getPendingDetails(station_id);
     }
+
+
+
 
 }

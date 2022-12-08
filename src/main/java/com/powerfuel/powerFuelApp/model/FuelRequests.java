@@ -2,6 +2,7 @@ package com.powerfuel.powerFuelApp.model;
 
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name="fuelRequests_tb")
@@ -9,10 +10,10 @@ public class FuelRequests {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int request_id;
-    int station_id;
-    String request_date;
-    String request_status;
+    private int request_id;
+    private int station_id;
+    private String request_date;
+    private String request_status;
 
     @OneToMany(mappedBy = "fuelRequests_tb",cascade = CascadeType.ALL,orphanRemoval = true)
 

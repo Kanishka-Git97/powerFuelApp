@@ -2,6 +2,7 @@ package com.powerfuel.powerFuelApp.service;
 
 import com.powerfuel.powerFuelApp.model.FuelRequests;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface FuelRequestService {
@@ -13,5 +14,7 @@ public interface FuelRequestService {
 
     public int validateStationRequest(int station_id);
 
-    public List<Object> viewAllRequestsByStationId(int station_id);
+    public List<FuelRequests> getPendingDetails(int station_id);
+
+
 }

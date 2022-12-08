@@ -11,4 +11,6 @@ public interface FuelRequestDetailsService {
     public List<Object> getPendingList(int request_id);
 
     public String getRequestedFuelType(int request_id);
+
+    public List<FuelRequestDetails> viewAllRequestsByStationId(int station_id);
 }
