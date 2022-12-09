@@ -23,6 +23,10 @@ public class FuelDispatch {
     private String expectedDeliveryTime;
     private int fuelQty;
     private String status;
+    private String stationId;
+    private String fuelType;
+
+
 
 
 
