@@ -15,4 +15,8 @@ public class FuelTypeImpl implements FuelTypeService{
     public FuelType save(FuelType fueltype){return  repository.save(fueltype);}
     public FuelType getFuelType(int id){ return repository.findById(id).orElse(null); }
     public List<FuelType> getAll(){return repository.findAll();}
+
+    public FuelType get(int id){
+        return repository.findById(id).orElse(null);
+    }
 }

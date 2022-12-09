@@ -9,4 +9,5 @@ public interface TokenService {
     public List<Token> all();
     public Integer validation(int vehicle);
     public Token get(int vehicle);
+    public List<Token> getTokens(int customer);
 }

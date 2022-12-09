@@ -1,5 +1,6 @@
 package com.powerfuel.powerFuelApp.controller;
 
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.powerfuel.powerFuelApp.model.FuelType;
 import com.powerfuel.powerFuelApp.service.FuelTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,4 +23,11 @@ public class FuelTypeController {
     public List<FuelType> all(){
         return service.getAll();
     }
+
+    @PostMapping("/get")
+    public FuelType get(@RequestBody ObjectNode data){
+        return service.get(data.get("id").asInt());
+    }
+
+
 }

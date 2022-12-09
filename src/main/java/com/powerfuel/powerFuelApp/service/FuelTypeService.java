@@ -8,4 +8,5 @@ public interface FuelTypeService {
     public FuelType getFuelType(int id);
     public FuelType save(FuelType fueltype);
     public List<FuelType> getAll();
+    public FuelType get(int id);
 }

@@ -33,4 +33,9 @@ public class TokenController {
     public Token get(@RequestBody ObjectNode data){
         return service.get(data.get("id").asInt());
     }
+
+    @PostMapping("/tokens")
+    public List<Token> tokens(@RequestBody ObjectNode data){
+        return service.getTokens(data.get("id").asInt());
+    }
 }

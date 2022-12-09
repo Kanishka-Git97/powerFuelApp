@@ -48,6 +48,7 @@ public class TokenImpl implements TokenService{
         return repository.validateVehicle(vehicle);
     }
 
+    public List<Token> getTokens(int customer){ return repository.getTokens(customer); }
 
 
 }

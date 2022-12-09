@@ -20,8 +20,8 @@ public class VehicleController {
     private VehicleTypeService vehicleTypeService;
 
     @PostMapping("/get")
-    public Vehicle get(@RequestBody int id){
-        return service.getVehicle(id);
+    public Vehicle get(@RequestBody ObjectNode data){
+        return service.getVehicle(data.get("id").asInt());
     }
 
     @PostMapping("/add")
