@@ -9,9 +9,9 @@ public interface FuelStationService {
 
     public FuelStation registerFuelStation(FuelStation fuelstation);
 
-    public List<FuelStation> getAllStationDetails();
+    public List<FuelStation> getStationDetails(int station_id);
 
-    public void updateStationData(String address,double diesel,int district,String email,String mobile,String name,double petrol,String status,int id);
+    public void updateStationData(String name,String mobile,double diesel,double petrol,String status,String email);
 
     public void closeStation(String status,int id);
 
@@ -19,7 +19,5 @@ public interface FuelStationService {
 
     public int validateStation(String email);
     public List<FuelStation> getNearestStations(int district);
-
-
-    public List<FuelStation> getSingleStationDetails(int id);
+    public FuelStation getStation(int id);
 }

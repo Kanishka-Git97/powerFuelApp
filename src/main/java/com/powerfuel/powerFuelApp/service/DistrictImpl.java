@@ -15,4 +15,7 @@ public class DistrictImpl implements DistrictService{
     public List<District> getDistricts(){
         return repository.findAll();
     }
+    public District getDistrict(int id){
+        return repository.findById(id).orElse(null);
+    }
 }
