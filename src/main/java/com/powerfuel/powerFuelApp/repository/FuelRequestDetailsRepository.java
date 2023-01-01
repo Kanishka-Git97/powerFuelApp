@@ -37,4 +37,6 @@ public interface FuelRequestDetailsRepository extends JpaRepository<FuelRequestD
     List<FuelRequestDetails> viewAllRequestsByStationId(int station_id);
 
 
+
+
 }
