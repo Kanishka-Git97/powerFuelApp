@@ -17,8 +17,8 @@ public class FuelStationImpl implements FuelStationService {
         return repository.save(fuelstation);
     }
 
-    public List<FuelStation> getAllStationDetails(){
-        return repository.getAllStationDetails();
+    public List<FuelStation> getStationDetails(int station_id){
+        return repository.getStationDetails(station_id);
     }
 
     public void updateStationData(String address,double diesel,int district,String email,String mobile,String name,double petrol,String status,int id){
@@ -37,10 +37,16 @@ public class FuelStationImpl implements FuelStationService {
         return repository.validateStation(email);
     }
 
-    public List<FuelStation> getNearestStations(int district){return repository.getNearestStations(district);}
-    public FuelStation getStation(int id){return repository.findById(id).orElse(null);}
+    public List<FuelStation> getAllStationDetails(){
+        return repository.getAllStationDetails();
+    }
+
     public List<FuelStation> getSingleStationDetails(int id){
         return repository.getSingleStationDetails(id);
     }
+
+
+    public List<FuelStation> getNearestStations(int district){return repository.getNearestStations(district);}
+    public FuelStation getStation(int id){return repository.findById(id).orElse(null);}
 
 }
