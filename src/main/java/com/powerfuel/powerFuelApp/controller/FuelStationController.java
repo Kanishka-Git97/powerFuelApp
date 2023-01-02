@@ -72,18 +72,6 @@ public class FuelStationController {
         return fuelstationservice.getStation(data.get("id").asInt());
     }
 
-    /*---------View All Station Details-------*/
-    @PostMapping("/viewAll")
-    public List<FuelStation>viewAllStations(){
-        return fuelstationservice.getAllStationDetails();
-    }
-
-    /*-------------get single station by id------*/
-    @PostMapping("/getSingleItem")
-    public List<FuelStation> getSingleItemDetails(@RequestBody ObjectNode data){
-        int station_id=data.get("id").asInt();
-        return fuelstationservice.getSingleStationDetails(station_id);
-    }
 
     /*---------View All Station Details-------*/
     @PostMapping("/viewAll")
