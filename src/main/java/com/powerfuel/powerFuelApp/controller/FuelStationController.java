@@ -63,7 +63,9 @@ public class FuelStationController {
     /*----Nearest Station details-----------*/
     @PostMapping(path = "/nearest", consumes = "application/x-www-form-urlencoded")
     public List<FuelStation> nearest(DataTraveler data){
-        int id = Integer.parseInt(data.getId());
+//        int id = Integer.parseInt(data.getId());
+        int id = Integer.parseInt("1");
+        System.out.println(fuelstationservice.getNearestStations(id));
         return fuelstationservice.getNearestStations(id);
     }
 
