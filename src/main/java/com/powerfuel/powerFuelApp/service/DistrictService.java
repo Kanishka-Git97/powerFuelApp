@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface DistrictService {
     public List<District> getDistricts();
+    public District getDistrict(int id);
 }

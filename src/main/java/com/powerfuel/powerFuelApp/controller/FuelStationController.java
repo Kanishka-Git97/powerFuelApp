@@ -1,6 +1,7 @@
 package com.powerfuel.powerFuelApp.controller;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.powerfuel.powerFuelApp.model.DataTraveler;
 import com.powerfuel.powerFuelApp.model.FuelStation;
 import com.powerfuel.powerFuelApp.service.FuelStationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,10 +61,28 @@ public class FuelStationController {
     }
 
     /*----Nearest Station details-----------*/
-    @PostMapping("/nearest")
-    public List<FuelStation> nearest(@RequestBody ObjectNode data){
-        return fuelstationservice.getNearestStations(data.get("district").asInt());
+    @PostMapping(path = "/nearest", consumes = "application/x-www-form-urlencoded")
+    public List<FuelStation> nearest(DataTraveler data){
+        int id = Integer.parseInt(data.getId());
+        return fuelstationservice.getNearestStations(id);
+    }
 
+    @PostMapping("/get")
+    public FuelStation get(@RequestBody ObjectNode data){
+        return fuelstationservice.getStation(data.get("id").asInt());
+    }
+
+    /*---------View All Station Details-------*/
+    @PostMapping("/viewAll")
+    public List<FuelStation>viewAllStations(){
+        return fuelstationservice.getAllStationDetails();
+    }
+
+    /*-------------get single station by id------*/
+    @PostMapping("/getSingleItem")
+    public List<FuelStation> getSingleItemDetails(@RequestBody ObjectNode data){
+        int station_id=data.get("id").asInt();
+        return fuelstationservice.getSingleStationDetails(station_id);
     }
 
     /*---------View All Station Details-------*/
