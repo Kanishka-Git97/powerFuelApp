@@ -48,6 +48,4 @@ public interface FuelStationRepository extends JpaRepository<FuelStation,Integer
     List<FuelStation> getSingleStationDetails(int id);
 
 
-
-
 }
