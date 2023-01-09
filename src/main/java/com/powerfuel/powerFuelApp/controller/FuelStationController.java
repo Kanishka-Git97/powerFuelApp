@@ -63,7 +63,6 @@ public class FuelStationController {
     @PostMapping("/nearest")
     public List<FuelStation> nearest(@RequestBody ObjectNode data){
         return fuelstationservice.getNearestStations(data.get("district").asInt());
-
     }
 
     /*---------View All Station Details-------*/
