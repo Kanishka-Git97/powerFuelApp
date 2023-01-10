@@ -38,4 +38,9 @@ public class VehicleController {
         return service.getVehiclesByOwner(data.get("id").asInt());
     }
 
+    @GetMapping("/updatefuel")
+    public String updateFuel(){
+        return service.updateFuel();
+    }
+
 }
