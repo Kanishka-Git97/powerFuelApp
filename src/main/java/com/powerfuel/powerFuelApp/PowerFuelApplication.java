@@ -11,10 +11,6 @@ import java.util.concurrent.TimeUnit;
 public class PowerFuelApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(PowerFuelApplication.class, args);
-
 	}
 }
-
-

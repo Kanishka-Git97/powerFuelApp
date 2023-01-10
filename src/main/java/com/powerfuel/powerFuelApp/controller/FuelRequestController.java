@@ -66,7 +66,6 @@ public class FuelRequestController {
 
             fuelrequestdetailservice.insertRequestDetails(newDetails);
 
-
             return "success";
 
         }else{
