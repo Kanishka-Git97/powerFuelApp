@@ -34,13 +34,22 @@ public class VehicleImpl implements VehicleService{
     public String updateFuel(){
         Date today = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd");
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
+        String fullToday = dateFormatter.format(today);
+
+
         String date = formatter.format(today);
-        if(date == "1"){
+        System.out.println(fullToday);
+        if(date.equals("10")){
+
             List<Vehicle> vehicles = repository.findAll();
             int i = 0;
             int length = vehicles.size();
             while(i < length){
                 Vehicle vehicle = vehicles.get(i);
+                if(vehicle.getLastUpdate().equals(fullToday)){
+                    return "Already Refreshed";
+                }
                 VehicleType vehicleType = vehicleTypeRepository.findById(vehicle.getVehicleType()).orElse(null);
                 double fuelQty = vehicleType.getQuota();
                 vehicle.setAvailableQuota(fuelQty);
