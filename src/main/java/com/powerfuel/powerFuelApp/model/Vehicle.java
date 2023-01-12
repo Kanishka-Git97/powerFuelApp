@@ -1,6 +1,7 @@
 package com.powerfuel.powerFuelApp.model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "vehicle")
@@ -21,6 +22,16 @@ public class Vehicle {
     @Column(name = "customer_id")
     private int customer;
 
+    private String lastUpdate;
+
+
+    public String getLastUpdate() {
+        return lastUpdate;
+    }
+
+    public void setLastUpdate(String lastUpdate) {
+        this.lastUpdate = lastUpdate;
+    }
 
     public Integer getId() {
         return id;
@@ -53,6 +64,7 @@ public class Vehicle {
     public void setId(Integer id) {
         this.id = id;
     }
+
 
     public void setRegistration(String registration) {
         this.registration = registration;

@@ -8,6 +8,8 @@ import com.powerfuel.powerFuelApp.service.VehicleTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -30,12 +32,21 @@ public class VehicleController {
         VehicleType selectedType = vehicleTypeService.get(vehicle.getVehicleType());
         //Update Vehicle Quota
         vehicle.setAvailableQuota(selectedType.getQuota());
+        Date today = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String formatToday = formatter.format(today);
+        vehicle.setLastUpdate(formatToday);
         return service.save(vehicle);
     }
 
     @PostMapping("/vehicles")
     public List<Vehicle> vehicles(@RequestBody ObjectNode data){
         return service.getVehiclesByOwner(data.get("id").asInt());
+    }
+
+    @GetMapping("/refreshfuel")
+    public String updateFuel(){
+        return service.updateFuel();
     }
 
 }

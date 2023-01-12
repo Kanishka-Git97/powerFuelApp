@@ -8,4 +8,5 @@ public interface VehicleService {
     public Vehicle getVehicle(int id);
     public String save(Vehicle vehicle);
     public List<Vehicle> getVehiclesByOwner(int customer);
+    public String updateFuel();
 }
