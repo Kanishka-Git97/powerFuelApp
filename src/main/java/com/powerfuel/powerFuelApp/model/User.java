@@ -10,10 +10,10 @@ public class User {
     @Column(name = "id", nullable = false)
     private int id;
     private String name;
-    private String company_type;
+    private String company_id;
     private String user_name;
     private String password;
-    private String designation;
+
     private String role;
     private String status;
 
@@ -25,8 +25,8 @@ public class User {
     public String getName() {
         return name;
     }
-    public String getCompanyType() {
-        return company_type;
+    public String getCompanyId() {
+        return company_id;
     }
     public String getUserName() {
         return user_name;
@@ -34,9 +34,7 @@ public class User {
     public String getPassword() {
         return password;
     }
-    public String getDesignation() {
-        return designation;
-    }
+
     public String getRole() {
         return role;
     }
@@ -50,17 +48,14 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-    public void setCompanyType(String company_type) {
-        this.company_type = company_type;
+    public void setCompanyId(String company_id) {
+        this.company_id = company_id;
     }
     public void setUserName(String user_name) {
         this.user_name = user_name;
     }
     public void setPassword(String password) {
         this.password = password;
-    }
-    public void setDesignation(String designation) {
-        this.designation = designation;
     }
     public void setRole(String role) {
         this.role = role;
