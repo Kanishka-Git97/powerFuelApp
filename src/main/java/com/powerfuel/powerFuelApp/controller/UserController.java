@@ -7,6 +7,8 @@ import com.powerfuel.powerFuelApp.service.UserRegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 @CrossOrigin
@@ -45,5 +47,15 @@ public class UserController {
 
 
 
+    }
+
+    @PostMapping("/viewEmployees")
+    public List<User> viewAllEmployees(@RequestBody ObjectNode data){
+        return userRegistrationService.getAllEmployees(data.get("company_id").asText());
+    }
+
+    @PostMapping("/viewSingleEmployees")
+    public List<User> viewSingleEmployee(@RequestBody ObjectNode data){
+        return userRegistrationService.getSingleEmployee(data.get("emp_id").asInt());
     }
 }
