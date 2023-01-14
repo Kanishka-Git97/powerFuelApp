@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @CrossOrigin
-
 public class UserController {
     @Autowired
     private UserRegistrationService userRegistrationService;
@@ -57,5 +56,16 @@ public class UserController {
     @PostMapping("/viewSingleEmployees")
     public List<User> viewSingleEmployee(@RequestBody ObjectNode data){
         return userRegistrationService.getSingleEmployee(data.get("emp_id").asInt());
+    }
+
+    /*----update employee details----*/
+    @PostMapping("/updateEmployee")
+    public void updateEmployee(@RequestBody ObjectNode data){
+        String name=data.get("name").asText();
+        String password=data.get("password").asText();
+        String role=data.get("role").asText();
+        String user_name=data.get("userName").asText();
+        int id=data.get("id").asInt();
+        userRegistrationService.updateEmployeeDetails(name,password,role,user_name,id);
     }
 }

@@ -13,4 +13,7 @@ public interface UserRegistrationService {
     /*----get single employee details------*/
     public List<User> getSingleEmployee(int id);
 
+    /*-----update employee details---*/
+    public void updateEmployeeDetails(String name,String password,String role,String user_name,int id);
+
 }

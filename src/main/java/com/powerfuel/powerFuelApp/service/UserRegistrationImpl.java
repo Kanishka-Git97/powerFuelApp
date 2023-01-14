@@ -24,4 +24,9 @@ public class UserRegistrationImpl implements UserRegistrationService {
         return  repository.getSingleEmployee(id);
     }
 
+
+    public void updateEmployeeDetails(String name,String password,String role,String user_name,int id){
+        repository.updateEmployeeDetails(name, password, role, user_name, id);
+    }
+
 }
