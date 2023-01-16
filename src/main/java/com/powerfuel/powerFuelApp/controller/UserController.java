@@ -65,7 +65,19 @@ public class UserController {
         String password=data.get("password").asText();
         String role=data.get("role").asText();
         String user_name=data.get("userName").asText();
+        String status=data.get("status").asText();
         int id=data.get("id").asInt();
-        userRegistrationService.updateEmployeeDetails(name,password,role,user_name,id);
+        userRegistrationService.updateEmployeeDetails(name,password,role,user_name,id,status);
+    }
+
+
+    /*-----validate user login=---------*/
+    @PostMapping("/uservalidate")
+    public List<User> validateLogin(@RequestBody ObjectNode data){
+        String user_name=data.get("user_name").asText();
+        String password=data.get("password").asText();
+        String company_id=data.get("company_id").asText();
+        return userRegistrationService.validateLogin(user_name,password,company_id);
+
     }
 }

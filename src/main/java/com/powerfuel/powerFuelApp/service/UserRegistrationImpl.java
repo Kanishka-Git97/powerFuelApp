@@ -25,8 +25,13 @@ public class UserRegistrationImpl implements UserRegistrationService {
     }
 
 
-    public void updateEmployeeDetails(String name,String password,String role,String user_name,int id){
-        repository.updateEmployeeDetails(name, password, role, user_name, id);
+    public void updateEmployeeDetails(String name,String password,String role,String user_name,int id,String status){
+        repository.updateEmployeeDetails(name, password, role, user_name, id,status);
+    }
+
+    /*---validate user and get response----*/
+    public List<User> validateLogin(String user_name,String password,String company_id){
+        return repository.validateLogin(user_name, password, company_id);
     }
 
 }

@@ -14,6 +14,9 @@ public interface UserRegistrationService {
     public List<User> getSingleEmployee(int id);
 
     /*-----update employee details---*/
-    public void updateEmployeeDetails(String name,String password,String role,String user_name,int id);
+    public void updateEmployeeDetails(String name,String password,String role,String user_name,int id,String status);
+
+    /*-----validate user login---*/
+    public List<User> validateLogin(String user_name,String password,String company_id);
 
 }

@@ -27,10 +27,12 @@ public interface UserRepository extends JpaRepository <User,Integer>{
     /*-----update registered employees----------*/
     @Transactional
     @Modifying
-    @Query(value="UPDATE user_registration SET name=?1,password=?2,role=?3,user_name=?4 WHERE id=?5",nativeQuery = true)
-    void updateEmployeeDetails(String name,String password,String role,String user_name,int id);
+    @Query(value="UPDATE user_registration SET name=?1,password=?2,role=?3,user_name=?4,status=?6 WHERE id=?5",nativeQuery = true)
+    void updateEmployeeDetails(String name,String password,String role,String user_name,int id,String status);
 
-
+    /*-----login related Queries starts here-------*/
+    @Query(value = "SELECT * FROM user_registration WHERE user_name=?1 AND password=?2 AND company_id=?3 ",nativeQuery = true)
+    List<User> validateLogin(String user_name,String password,String company_id);
 
 
 
