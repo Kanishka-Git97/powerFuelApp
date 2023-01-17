@@ -30,6 +30,7 @@ public class UserController {
         String designation=data.get("designation").asText();
         String role=data.get("role").asText();
         String status=data.get("status").asText();
+        /*changes*/
 
         newUser.setId(id);
         newUser.setName(name);
