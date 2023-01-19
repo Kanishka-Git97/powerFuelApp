@@ -21,6 +21,7 @@ public class UserController {
     @PostMapping("/register")
     public String registerUser(@RequestBody ObjectNode data){
         User newUser=new User();
+        User newUser1User=new User();
       
         int id = data.get("id").asInt();
         String name=data.get("name").asText();
@@ -29,9 +30,12 @@ public class UserController {
         String password=data.get("password").asText();
         String designation=data.get("designation").asText();
         String role=data.get("role").asText();
+        String role4=data.get("role").asText();
         String status=data.get("status").asText();
         String status1=data.get("status").asText();
+
         /*changes*/
+        /*bla */
 
         newUser.setId(id);
         newUser.setName(name);
@@ -41,6 +45,8 @@ public class UserController {
         newUser.setDesignation(designation);
         newUser.setRole(role);
         newUser.setStatus(status);
+    
+
 
         userRegistrationService.userRegistration(newUser);
 
