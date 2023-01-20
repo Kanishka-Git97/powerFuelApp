@@ -32,8 +32,7 @@ public class UserController {
         String role=data.get("role").asText();
         String role4=data.get("role").asText();
         String status=data.get("status").asText();
-        String status1=data.get("status").asText();
-
+      
         /*changes*/
         /*bla */
 
